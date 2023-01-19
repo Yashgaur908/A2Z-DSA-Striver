@@ -1,0 +1,16 @@
+//  Question link:- https://practice.geeksforgeeks.org/problems/move-all-zeroes-to-end-of-array0751/1
+
+class Solution {
+    void pushZerosToEnd(int[] arr, int n) {
+        int i = 0, j = 0;
+        while(j < n){
+            if(arr[j] != 0){
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+                i++;
+            }
+            j++;
+        }
+    }
+}
