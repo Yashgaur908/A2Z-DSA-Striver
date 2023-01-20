@@ -1,0 +1,14 @@
+//  Question link:- https://practice.geeksforgeeks.org/problems/missing-number4257/1
+
+class Compute {
+    
+    public static int missingNumber(int A[], int N)
+    {
+         int totalSum = N * (N + 1) / 2;
+         int currSum = 0;
+         for(int i = 0; i < N; i++){
+            currSum += A[i];
+         }
+         return totalSum - currSum;
+    }
+}
