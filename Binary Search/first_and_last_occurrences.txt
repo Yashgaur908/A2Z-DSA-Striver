@@ -1,0 +1,31 @@
+//	Question link:- https://practice.geeksforgeeks.org/problems/first-and-last-occurrences-of-x3116/1
+
+class GFG
+{
+    long binarySearch(int start, int end, int x, boolean flag, long arr[]){
+        long result = -1;
+        while(start <= end){
+            int mid = (start + end) / 2;
+            if(arr[mid] == x){
+                result = mid;
+                if(flag) end = mid - 1;
+                else start = mid + 1;
+            }else if(x < arr[mid]){
+                end = mid - 1;
+            }else{
+                start = mid + 1;
+            }
+        }
+        return result;
+    }
+    
+    ArrayList<Long> find(long arr[], int n, int x)
+    {
+        long firstOccurrence = binarySearch(0, n-1, x, true, arr);
+        long lastOccurrence =  binarySearch(0, n-1, x, false, arr);
+        ArrayList<Long> ans = new ArrayList<Long>();
+        ans.add(firstOccurrence);
+        ans.add(lastOccurrence);
+        return ans;
+    }
+}
